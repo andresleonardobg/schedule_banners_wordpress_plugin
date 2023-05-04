@@ -22,7 +22,7 @@ add_action( 'admin_menu', 'createMenu' );
 
 function createMenu(){
     add_menu_page( 
-        'Titulo de la pagina', 
+        'Titulo tab', 
         'menu titulo', 
         'manage_options', 
         'pluginTestSlug', 
@@ -30,8 +30,22 @@ function createMenu(){
         plugin_dir_url( __FILE__ ).'admin/image/icon.png', 
         '1'
     );
+
+    add_submenu_page( 
+        'pluginTestSlug', 
+        'Titulo tab submenu', 
+        'sub menu', 
+        'manage_options',
+        'slug_sub_menu', 
+        'submenu'
+        /*position */
+    );
 }
 
 function mostrarContenido(){
     echo '<h1>Plugin test</h1>';
+}
+
+function submenu(){
+    echo '<h1>Plugin test submenu</h1>';
 }
